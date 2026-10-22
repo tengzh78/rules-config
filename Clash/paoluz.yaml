@@ -253,6 +253,11 @@ proxy-groups:
   - {
       name: Streaming,
       <<: *Anchor_OB,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Streaming.png,
+    }
+  - {
+      name: YouTube,
+      <<: *Anchor_OB,
       icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/YouTube.png,
     }
   - {
@@ -380,7 +385,7 @@ rules:
 
   - GEOSITE,category-ai-!cn,AI Services # AI Services
 
-  - GEOSITE,youtube,Google # YouTube
+  - GEOSITE,youtube,YouTube # YouTube
   - GEOIP,netflix,Streaming,no-resolve # Netflix IP
   - GEOSITE,apple-tvplus,Streaming # Apple TV+
   - GEOSITE,netflix,Streaming # Netflix
