@@ -44,8 +44,10 @@ Anchor_UT_Global:
     expected-status: 204,
     url: "https://www.gstatic.com/generate_204",
     interval: 300,
+    lazy: false,
     tolerance: 30,
     timeout: 2000,
+    max-failed-times: 3,
     include-all: true,
     exclude-type: direct,
   }
@@ -56,6 +58,7 @@ Anchor_FB_Global:
     expected-status: 204,
     url: "https://www.gstatic.com/generate_204",
     interval: 180,
+    lazy: false,
     timeout: 2000,
     max-failed-times: 2,
     hidden: true,
