@@ -383,8 +383,6 @@ rules:
   - RULE-SET,youtube_domain,YouTube # YouTube
   - RULE-SET,instagram_domain,Facebook # Instagram
   - RULE-SET,google_domain,Google # Google
-  - RULE-SET,games_cn_domain,DIRECT # 国内游戏
-  - RULE-SET,games_domain,Games # 游戏
   - RULE-SET,microsoft_domain,Microsoft # 微软服务
   - RULE-SET,appletv_domain,Streaming # Apple TV+
   - RULE-SET,apple_domain,Apple # 苹果服务
@@ -405,6 +403,8 @@ rules:
   - RULE-SET,telegram_ip,Telegram,no-resolve # Telegram
   - RULE-SET,twitter_ip,Twitter,no-resolve # Twitter
   - RULE-SET,netflix_ip,Netflix,no-resolve # Netflix
+  - RULE-SET,games_cn_domain,DIRECT # 国内游戏
+  - RULE-SET,games_domain,Games # 游戏
   - RULE-SET,microsoft_cn,DIRECT # Microsoft中国
   - RULE-SET,apple_cn,DIRECT # Apple中国
   - RULE-SET,cn_domain,DIRECT # 中国域名
