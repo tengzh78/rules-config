@@ -81,6 +81,14 @@ Anchor_IP:
     behavior: ipcidr,
     format: mrs,
   }
+Anchor_RS:
+  &Anchor_RS {
+    type: http,
+    interval: 86400,
+    proxy: 一键代理,
+    behavior: classical,
+    format: yaml,
+  }
 
 # 区域锚点
 Anchor_HK: &Anchor_HK '^(?i)(?=.*(香港|🇭🇰|\bHK\b|Hong(?:\s?Kong)?|\bHKG\b|\bHKT\b|\bHKBN\b)).*$'
@@ -229,9 +237,24 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Rocket.png,
     }
   - {
-      name: Streaming,
+      name: Google,
       <<: *Anchor_OB,
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Streaming.png,
+      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Google.png,
+    }
+  - {
+      name: Apple,
+      <<: *Anchor_OB,
+      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Apple.png,
+    }
+  - {
+      name: Microsoft,
+      <<: *Anchor_OB,
+      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Microsoft.png,
+    }
+  - {
+      name: AIGC,
+      <<: *Anchor_AI,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png,
     }
   - {
       name: YouTube,
@@ -239,24 +262,24 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/YouTube.png,
     }
   - {
+      name: Netflix,
+      <<: *Anchor_OB,
+      icon: https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Conf/icon/Netflix.png,
+    }
+  - {
       name: Telegram,
       <<: *Anchor_OB,
       icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Telegram.png,
     }
   - {
-      name: Emby,
+      name: Facebook,
       <<: *Anchor_OB,
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png,
+      icon: https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Conf/icon/Instagram.png,
     }
   - {
-      name: Google,
+      name: Spotify,
       <<: *Anchor_OB,
-      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Google.png,
-    }
-  - {
-      name: AI Services,
-      <<: *Anchor_AI,
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png,
+      icon: https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Conf/icon/Spotify.png,
     }
   - {
       name: TikTok,
@@ -269,19 +292,14 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/04ProxySoft/github(1).png,
     }
   - {
-      name: Apple,
-      <<: *Anchor_OB,
-      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Apple.png,
-    }
-  - {
       name: Twitter,
       <<: *Anchor_OB,
       icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Twitter.png,
     }
   - {
-      name: Microsoft,
+      name: Streaming,
       <<: *Anchor_OB,
-      icon: https://raw.githubusercontent.com/Seven1echo/Yaml/main/icons/Microsoft.png,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Streaming.png,
     }
   - {
       name: PayPal,
@@ -359,46 +377,39 @@ rules:
   - RULE-SET,ads_domain,REJECT # 屏蔽广告
   - RULE-SET,private_domain,DIRECT # Private
   - RULE-SET,private_ip,DIRECT,no-resolve # Private
-  - RULE-SET,microsoft_cn,DIRECT # Microsoft中国
-  - RULE-SET,apple_cn,DIRECT # Apple中国
   - RULE-SET,speedtest_domain,DIRECT # Speedtest
-  - RULE-SET,ai,AI Services # AI Services
+  - RULE-SET,ai,AIGC # AI Services
   - RULE-SET,github_domain,GitHub # GitHub
   - RULE-SET,youtube_domain,YouTube # YouTube
-  - RULE-SET,instagram_domain,Streaming # Instagram
+  - RULE-SET,instagram_domain,Facebook # Instagram
   - RULE-SET,google_domain,Google # Google
   - RULE-SET,games_cn_domain,DIRECT # 国内游戏
   - RULE-SET,games_domain,Games # 游戏
-  - RULE-SET,onedrive_domain,Microsoft # OneDrive
   - RULE-SET,microsoft_domain,Microsoft # 微软服务
   - RULE-SET,appletv_domain,Streaming # Apple TV+
-  - RULE-SET,emby_domain,Emby # Emby
   - RULE-SET,apple_domain,Apple # 苹果服务
   - RULE-SET,telegram_domain,Telegram # Telegram
-  - RULE-SET,line_domain,Telegram # LINE
-  - RULE-SET,line_ip,Telegram,no-resolve # LINE IP
   - RULE-SET,whatsapp_domain,Telegram # WhatsApp
   - RULE-SET,whatsapp_ip,Telegram,no-resolve # WhatsApp IP
   - RULE-SET,douyin_domain,DIRECT # 抖音直连
   - RULE-SET,tiktok_domain,TikTok # TikTok
   - RULE-SET,twitter_domain,Twitter # Twitter
-  - RULE-SET,netflix_domain,Streaming # Netflix
-  - RULE-SET,disney_domain,Streaming # Disney+
-  - RULE-SET,spotify_domain,Streaming # Spotify
+  - RULE-SET,netflix_domain,Netflix # Netflix
+  - RULE-SET,spotify_domain,Spotify # Spotify
   - RULE-SET,crypto_domain,Crypto # 加密货币
   - RULE-SET,crypto_extra_domain,Crypto # 加密货币补充
   - RULE-SET,paypal_domain,PayPal # PayPal
   - RULE-SET,finance_domain,PayPal # 金融平台
-  - RULE-SET,add_emby,Emby # Emby 补充
   - RULE-SET,add_direct_domain,DIRECT # 直连域名
-  - RULE-SET,emby_ip,Emby,no-resolve # Emby IP
   - RULE-SET,google_ip,Google,no-resolve # Google
   - RULE-SET,telegram_ip,Telegram,no-resolve # Telegram
   - RULE-SET,twitter_ip,Twitter,no-resolve # Twitter
-  - RULE-SET,netflix_ip,Streaming,no-resolve # Netflix
+  - RULE-SET,netflix_ip,Netflix,no-resolve # Netflix
+  - RULE-SET,microsoft_cn,DIRECT # Microsoft中国
+  - RULE-SET,apple_cn,DIRECT # Apple中国
   - RULE-SET,cn_domain,DIRECT # 中国域名
   - RULE-SET,cn_ip,DIRECT,no-resolve # 中国IP
-  - MATCH,兜底流量 # 兜底规则  未命中以上规则的流量统一交给兜底组，由该组自选直连或代理
+  - MATCH,兜底流量 # 兜底规则
 
 # 规则来源 (
 rule-providers:
@@ -442,8 +453,8 @@ rule-providers:
     }
   ai:
     {
-      <<: *Anchor_DN,
-      url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs",
+      <<: *Anchor_RS,
+      url: "https://raw.githubusercontent.com/tengzh78/rules-config/master/Clash/rules/AIGC.yaml",
     }
   github_domain:
     {
@@ -465,11 +476,6 @@ rule-providers:
       <<: *Anchor_DN,
       url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs",
     }
-  onedrive_domain:
-    {
-      <<: *Anchor_DN,
-      url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs",
-    }
   microsoft_domain:
     {
       <<: *Anchor_DN,
@@ -480,16 +486,6 @@ rule-providers:
       <<: *Anchor_DN,
       url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs",
     }
-  emby_domain:
-    {
-      <<: *Anchor_DN,
-      url: "https://cdn.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Emby.mrs",
-    }
-  add_emby:
-    {
-      <<: *Anchor_DN,
-      url: "https://cdn.jsdelivr.net/gh/Chunlion/Clash-Icons@main/Emby.mrs",
-    }
   apple_domain:
     {
       <<: *Anchor_DN,
@@ -499,16 +495,6 @@ rule-providers:
     {
       <<: *Anchor_DN,
       url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs",
-    }
-  line_domain:
-    {
-      <<: *Anchor_DN,
-      url: "https://raw.githubusercontent.com/Chunlion/Clash_Rule-Set/main/rules/line_domain.mrs",
-    }
-  line_ip:
-    {
-      <<: *Anchor_IP,
-      url: "https://raw.githubusercontent.com/Chunlion/Clash_Rule-Set/main/rules/line_ip.mrs",
     }
   whatsapp_domain:
     {
@@ -539,11 +525,6 @@ rule-providers:
     {
       <<: *Anchor_DN,
       url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs",
-    }
-  disney_domain:
-    {
-      <<: *Anchor_DN,
-      url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs",
     }
   spotify_domain:
     {
@@ -600,11 +581,6 @@ rule-providers:
     {
       <<: *Anchor_IP,
       url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs",
-    }
-  emby_ip:
-    {
-      <<: *Anchor_IP,
-      url: "https://cdn.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Emby.mrs",
     }
   telegram_ip:
     {
