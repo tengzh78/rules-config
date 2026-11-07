@@ -1,11 +1,21 @@
 # NAME: AIGC 规则
 # UPDATED: 2026.11
-# TOTAL: 56
 
 payload:
   # ======= 手动维护规则 ========
   - DOMAIN-SUFFIX,cursor.com
   - DOMAIN-SUFFIX,cursor.sh
+  - DOMAIN-WILDCARD,*mask*.apple-dns.net
+  - DOMAIN-WILDCARD,*mask*.icloud.com
+  - DOMAIN-WILDCARD,*siri*.apple.com
+  - DOMAIN-SUFFIX,smoot.apple.com
+  - DOMAIN,apple-relay.apple.com
+  - DOMAIN,apple-relay.cloudflare.com
+  - DOMAIN,apple-relay.fastly-edge.com
+  - DOMAIN,cp4.cloudflare.com
+  - DOMAIN,gspe1-ssl.ls.apple.com
+  - DOMAIN,guzzoni.apple.com
+
   # ======= 上游同步规则 ========
   - DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
   - DOMAIN-SUFFIX,g.ai
